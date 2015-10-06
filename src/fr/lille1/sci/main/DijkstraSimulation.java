@@ -20,6 +20,7 @@ public class DijkstraSimulation {
             System.out.println("Usage : java Simulation tailleX tailleY tailleCase nombreAttracteur nombrePoursuivant nombreMur sleepTime");
             return;
         }
+        
 
         int tailleX = Integer.parseInt(args[0]);
         int tailleY = Integer.parseInt(args[1]);
