@@ -10,7 +10,13 @@ public class DijkstraSimulation {
 
     public static void main(String[] args) {
 
-        if (args.length < 9) {
+        /**
+         *
+         * EXemple de config : 50 50 10 1 1 150 100
+         *
+         */
+
+        if (args.length < 7) {
             System.out.println("Usage : java Simulation tailleX tailleY tailleCase nombreAttracteur nombrePoursuivant nombreMur sleepTime");
             return;
         }
@@ -27,9 +33,9 @@ public class DijkstraSimulation {
 
 
         DijkstraSMA sma = new DijkstraSMA();
-        
+
         sma.init(tailleX, tailleY, nombreAttracteur + nombrePoursuivant + nombreMur);
-        
+
         sma.initMurs(nombreMur);
         sma.initAttracteurs(nombreAttracteur);
         sma.initPoursuivants(nombrePoursuivant);
@@ -37,6 +43,7 @@ public class DijkstraSimulation {
         PixelCanvas canvas = new PixelCanvas(tailleX, tailleY, tailleCase);
         sma.addObserver(canvas);
         sma.run(sleepTime);
+
 
     }
 

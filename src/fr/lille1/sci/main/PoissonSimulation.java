@@ -77,19 +77,19 @@ public class PoissonSimulation {
         thon.delete();
     }
 
-    public static void enregisterPopulations(SMA sma){
+    public static void enregisterPopulations(SMA sma) {
         PrintWriter outRequin = null;
         PrintWriter outThon = null;
-        try{
+        try {
             outRequin = new PrintWriter(new BufferedWriter(new FileWriter("requin.txt", true)));
             outThon = new PrintWriter(new BufferedWriter(new FileWriter("thon.txt", true)));
 
-            outRequin.println( sma.getPopulationOf(Requin.class));
-            outThon.println( sma.getPopulationOf(Thon.class));
+            outRequin.println(sma.getPopulationOf(Requin.class));
+            outThon.println(sma.getPopulationOf(Thon.class));
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             outRequin.close();
             outThon.close();
         }
