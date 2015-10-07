@@ -5,11 +5,13 @@ import fr.lille1.sci.core.Environnement;
 import fr.lille1.sci.core.SMA;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 public class DijkstraSMA extends SMA {
 
     private boolean isFinished = false;
+     
 
     @Override
     public void init(int tailleX, int tailleY, int nombreAgents) {
@@ -93,9 +95,49 @@ public class DijkstraSMA extends SMA {
         this.isFinished = isFinished;
     }
 
+    public void generateDijkstraEnv(){
+    	
+    	this.env.initDijkstraMap();
+    	
+    	for (Agent agent : getAgents()) {
+			if(agent instanceof Attracteur){
+				//faire carte des minimums
+				
+				int x = agent.getX();
+				int y = agent.getY();
+				int value = 0;
+				
+				for (int i = 0; i < this.env.getTailleY(); i++) {
+					for (int j = 0; j < this.env.getTailleY(); j++) {
+						
+						
+						//FAIRE ALGO prennant compte des murs dijkstra !!
+						value = Math.abs(x-i) + Math.abs(y-j);
+						//TODO ici
+												
+						if(this.env.getDikstraMap()[i][j] > value){
+							this.env.getDikstraMap()[i][j]=value;
+						}
+						
+					}
+				}
+				
+				
+			}
+		}
+    	
+    	
+    	
+    }
+    
+    
     @Override
     public void run(int sleepTime) {
         while (!isFinished) {
+        	
+        	generateDijkstraEnv();
+        	
+        	
             for (Agent a : getAgents()) {
                 a.decide();
             }

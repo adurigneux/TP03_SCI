@@ -12,7 +12,7 @@ public class DijkstraSimulation {
 
         /**
          *
-         * EXemple de config : 50 50 10 1 1 150 100
+         * EXemple de config : 50 50 10 1 1 150 1000
          *
          */
 

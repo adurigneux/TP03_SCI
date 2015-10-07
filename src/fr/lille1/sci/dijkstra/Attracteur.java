@@ -2,6 +2,7 @@ package fr.lille1.sci.dijkstra;
 
 import fr.lille1.sci.core.Agent;
 import fr.lille1.sci.core.Environnement;
+import fr.lille1.sci.core.Position;
 
 import java.awt.*;
 
@@ -19,6 +20,11 @@ public class Attracteur extends Agent {
     public void decide() {
         // bouger au hasard sans toucher les murs
         // ne pas oublier de tout finir quand l'attracteur se fait bouffer
+    	
+    	
+    	//POUR FAIRE BOUGER L'ATTRACTEUR
+		// Position newPosition = this.env.getPlaceLibre(x, y);
+		// this.bouger(newPosition);
     }
 
 }
