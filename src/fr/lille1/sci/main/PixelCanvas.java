@@ -5,6 +5,7 @@ import fr.lille1.sci.core.SMA;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -53,7 +54,8 @@ public class PixelCanvas extends Canvas implements Observer {
         g.drawRect(0, 0, width, height);
 
         if (agents != null) {
-            for (Agent agent : agents) {
+            List<Agent> currentAgents = new ArrayList<Agent>(agents);
+            for (Agent agent : currentAgents) {
                 g.setColor(agent.getColor());
                 g.fillRect(agent.getX() * tailleCase,
                         agent.getY() * tailleCase, tailleCase, tailleCase);

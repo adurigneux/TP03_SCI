@@ -36,6 +36,13 @@ Dans notre algorithme, un requin ne peut faire qu'une seule de ces actions par t
 * Nous vérifions s'il peut se déplacer dans la grille
 De même que pour les requins, le thon ne peut effectuer qu'une seule action à la fois par tour.
 
+### Attracteur - Poursuivant (Dijkstra)
+L'environnement contenant les attracteurs et les poursuivants est un espace 2D non-torique permettant de se déplacer en horizontal, diagonal et vertical.
+Lorsque nous générons l'environnement, nous créons un certain nombre de murs qui sont des obstacles à la progression des poursuivants qui se déplacent dans l'environnement pour attraper les attracteurs.
+A chaque tour de la simulation, nous générons une carte des poids de l'environnement représentant respectivement le poids du chemin à partir des attracteurs. Ainsi, par exemple, les cases
+voisines directes d'un attracteur ont un poids de 1. Celle qui entourent ces mêmes cases voisines ont un point de 2, etc. Lorsqu'un attracteur est attrapé par un poursuivant, les deux sont
+supprimés de la liste des agents, et une nouvelle carte de poids est regénérée, devenant la nouvelle "feuille de route" pour les poursuivants restants. 
+
 ## Compilation du projet
 * JDK > 1.7 demandé pour la compilation du projet
 
@@ -68,18 +75,40 @@ java PoissonSimulation tailleX tailleY tailleCase nombreThon nombreRequins temps
 * tempsSansMangerRequin : temps après lequel un requin meurt lorsqu'il n'a pas pu manger un thon
 * sleepTime : le temps en ms entre chaque tour de la simulation
 
+### Attracteur - Poursuivant (Dijkstra)
+```bash
+java Simulation tailleX tailleY tailleCase nombreAttracteur nombrePoursuivant nombreMur sleepTime
+```
+
+* tailleX, tailleY : la taille en X et Y de la fenêtre de simulation (pixels)
+* tailleCase : la taille du côté d'une case représentant un individu (pixels)
+* nombreAttracteurs : nombre d'attracteurs dans la simulation au départ
+* nombrePoursuivants : nombre de requins dans la simulation
+* nombreMurs : nombre de murs (obstacles) dans la simulation
+* sleepTime : le temps en ms entre chaque tour de la simulation
+
 #### Exemples de configuration
-##### En équilibre 
+
+##### Attracteur - Poursuivant (Dijkstra)
+```bash
+java DijkstraSimulation 50 50 10 3 3 150 1000
+```
+
+* 3 attracteurs et 3 poursuivants
+* 150 murs dans l'environnement
+
+##### Requin (prédateur) - Thon (Proie)
+###### En équilibre
 ```bash
 java PoissonSimulation 200 200 4 4000 400 8 15 3 100
 ```
 
 ![alt tag](http://a23.imgup.net/Untitled28f0b.png)
 
-##### En non-équilibre
+###### En non-équilibre
 ```bash
 java PoissonSimulation 200 200 4 4000 850 8 10 8 100
 ```
 
-##### Résultats graphiques
+###### Résultats graphiques
 Pour visualiser les graphiques résultant des simulations, il suffit d'ouvrir le fichier excel à la racine du dossier. La feuille de calcul est liée aux deux fichiers résultats requin.txt et thon.txt regénérés à chaque simulation.

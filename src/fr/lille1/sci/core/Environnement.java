@@ -1,5 +1,6 @@
 package fr.lille1.sci.core;
 
+import fr.lille1.sci.dijkstra.Attracteur;
 import fr.lille1.sci.fish.Thon;
 
 import java.util.ArrayList;
@@ -33,6 +34,10 @@ public class Environnement {
 				dijkstraMap[i][j] = Integer.MAX_VALUE;
 			}
 		}
+	}
+
+	public boolean estAttracteur(int x, int y) {
+		return this.espace[x][y] != null && this.espace[x][y] instanceof Attracteur;
 	}
 
 	public int getTailleY() {
@@ -135,8 +140,16 @@ public class Environnement {
 		return dijkstraMap;
 	}
 
-	public void setDikstraMap(int[][] dikstraMap) {
-		this.dijkstraMap = dikstraMap;
+	public String toStringDijkstraMap() {
+		String s = "";
+		for(int i = 0; i < dijkstraMap.length; i++) {
+			for(int j = 0; j < dijkstraMap.length; j++) {
+				s += dijkstraMap[i][j] + "\t";
+
+			}
+			s += "\n";
+		}
+		return s;
 	}
 
 }

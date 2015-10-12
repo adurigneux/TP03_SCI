@@ -18,13 +18,8 @@ public class Attracteur extends Agent {
 
     @Override
     public void decide() {
-        // bouger au hasard sans toucher les murs
-        // ne pas oublier de tout finir quand l'attracteur se fait bouffer
-    	
-    	
-    	//POUR FAIRE BOUGER L'ATTRACTEUR
-		// Position newPosition = this.env.getPlaceLibre(x, y);
-		// this.bouger(newPosition);
+         Position newPosition = this.env.getPlaceLibre(x, y);
+		 this.bouger(newPosition);
     }
 
 }

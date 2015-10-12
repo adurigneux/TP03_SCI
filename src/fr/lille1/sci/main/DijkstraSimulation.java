@@ -9,13 +9,6 @@ public class DijkstraSimulation {
 
 
     public static void main(String[] args) {
-
-        /**
-         *
-         * EXemple de config : 50 50 10 1 1 150 1000
-         *
-         */
-
         if (args.length < 7) {
             System.out.println("Usage : java Simulation tailleX tailleY tailleCase nombreAttracteur nombrePoursuivant nombreMur sleepTime");
             return;
