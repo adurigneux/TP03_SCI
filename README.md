@@ -41,7 +41,7 @@ L'environnement contenant les attracteurs et les poursuivants est un espace 2D n
 Lorsque nous générons l'environnement, nous créons un certain nombre de murs qui sont des obstacles à la progression des poursuivants qui se déplacent dans l'environnement pour attraper les attracteurs.
 A chaque tour de la simulation, nous générons une carte des poids de l'environnement représentant respectivement le poids du chemin à partir des attracteurs. Ainsi, par exemple, les cases
 voisines directes d'un attracteur ont un poids de 1. Celle qui entourent ces mêmes cases voisines ont un point de 2, etc. Lorsqu'un attracteur est attrapé par un poursuivant, les deux sont
-supprimés de la liste des agents, et une nouvelle carte de poids est regénérée, devenant la nouvelle "feuille de route" pour les poursuivants restants. 
+supprimés de la liste des agents, et une nouvelle carte de poids est regénérée, devenant la nouvelle "feuille de route" pour les poursuivants restants.
 
 ## Compilation du projet
 * JDK > 1.7 demandé pour la compilation du projet
